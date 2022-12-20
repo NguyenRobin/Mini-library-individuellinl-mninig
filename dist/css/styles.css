@@ -1,0 +1,167 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h2 {
+  font-size: 2.5rem;
+  /* white-space: nowrap; */
+}
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.main-heading {
+  font-size: 4.6rem;
+}
+
+.main-section {
+}
+
+.book-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.book-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  width: 20rem;
+  height: 25rem;
+  color: #fff;
+  border-radius: 0.2rem;
+  /* border: 0.1rem solid red; */
+  background: linear-gradient(
+    36deg,
+    rgba(167, 99, 99, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+}
+
+.book-article:hover {
+  cursor: pointer;
+}
+
+.book-article h3 {
+  font-size: 1.8rem;
+}
+
+.book-article p {
+  font-size: 1.3rem;
+}
+
+.container.show {
+  display: none;
+}
+
+/*********************** New Page  *****************/
+.container.book {
+  padding: 5rem;
+}
+
+.book-section {
+  /* padding: 5rem; */
+  color: #fff;
+  line-height: 1.3;
+  max-width: 65rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  /* grid-auto-columns: 1fr; */
+  grid-template-areas:
+    'book bookInformation'
+    'book bookSubInformation'
+    'book BtnMoreInfo';
+}
+
+.btn-back {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 3rem;
+  border: none;
+  background-color: #8a8a8a;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-back span {
+  font-size: 3.5rem;
+}
+
+.book-cover {
+  grid-area: book;
+}
+
+.book-information {
+  grid-area: bookInformation;
+}
+.book-title {
+  font-size: 3.8rem;
+}
+
+.book-author {
+  font-size: 1.8rem;
+}
+.book-text {
+  font-size: 1.4rem;
+  padding-top: 2rem;
+}
+
+.book__sub-information {
+  grid-area: bookSubInformation;
+  white-space: nowrap;
+  font-size: 1.4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  padding: 1rem 2rem;
+  background-color: rgba(196, 196, 196, 0.08);
+}
+
+.btn__more-information {
+  grid-area: BtnMoreInfo;
+  width: 50%;
+}
+
+.body.background-color {
+  background-color: #e5e5e5;
+}
+.book-size {
+  width: 35rem;
+  height: 45rem;
+}
+.book-article.book-size {
+  color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.book-article.book-size h3 {
+  font-size: 3.8rem;
+}
+.book-article.book-size p {
+  font-size: 1.4rem;
+  align-self: flex-start;
+}
