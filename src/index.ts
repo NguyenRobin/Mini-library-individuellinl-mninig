@@ -11,10 +11,8 @@ const btnSearchElem: HTMLButtonElement | null =
 
 async function InputSearch() {
   const dataOfBooks: Book[] = await getData();
-
   btnSearchElem?.addEventListener('click', function () {
     const input = inputElem?.value.toLowerCase();
-
     for (const book of dataOfBooks) {
       if (
         book.title.toLowerCase() === input ||
@@ -23,12 +21,13 @@ async function InputSearch() {
         addElement();
         generateClickedBook(book);
       } else {
+        // ELSE körs även oavsett ???
+        inputElem.value = '';
         console.log('No Book found! Please try again.');
-        // console.log(alert('Book not found! Please try again.'));
       }
+      document.querySelector('.btn-back')?.addEventListener('click', goBack);
+      inputElem.value = '';
     }
-    document.querySelector('.btn-back')?.addEventListener('click', goBack);
-    inputElem.value = '';
   });
 }
 InputSearch();
@@ -36,7 +35,11 @@ InputSearch();
 async function loadBookList() {
   const dataOfBooks: Book[] = await getData();
   createEachBook(dataOfBooks);
+}
+loadBookList();
 
+async function clickedBook() {
+  const dataOfBooks: Book[] = await getData();
   const eachBookElem = document.querySelectorAll('.book-article');
   eachBookElem.forEach((book) => {
     book.addEventListener('click', function (event: Event) {
@@ -53,4 +56,25 @@ async function loadBookList() {
     });
   });
 }
-loadBookList();
+clickedBook();
+
+// async function InputSearch() {
+//   const dataOfBooks: Book[] = await getData();
+//   btnSearchElem?.addEventListener('click', function () {
+//     const input = inputElem?.value.toLowerCase();
+//     for (const book of dataOfBooks) {
+//       if (input !== book.title.toLowerCase()) {
+//         return alert('No Book found! Please try again.');
+//       } else if (
+//         book.title.toLowerCase() === input ||
+//         book.author.toLowerCase() === input
+//       ) {
+//         addElement();
+//         generateClickedBook(book);
+//       }
+//       document.querySelector('.btn-back')?.addEventListener('click', goBack);
+//       inputElem.value = '';
+//     }
+//   });
+// }
+// InputSearch();
