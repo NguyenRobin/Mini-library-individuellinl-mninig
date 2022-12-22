@@ -8,8 +8,16 @@ function goBack(): void {
   bodyElem.style.backgroundColor = '#fff';
 }
 
-function addElement(): void {
+function clickEscape(): void {
+  document.addEventListener('keydown', function (event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      goBack();
+    }
+  });
+}
+
+function addStyles(): void {
   containerElem?.classList.add('show');
   bodyElem.style.backgroundColor = '#222222';
 }
-export { goBack, addElement, containerElem };
+export { goBack, addStyles, containerElem, clickEscape };

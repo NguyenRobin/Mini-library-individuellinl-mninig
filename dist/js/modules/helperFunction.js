@@ -1,4 +1,4 @@
-import { bodyElem } from './modules/display.js';
+import { bodyElem } from './display.js';
 const containerElem = document.querySelector('.container');
 function goBack() {
     document.querySelector('.container')?.classList.remove('show');

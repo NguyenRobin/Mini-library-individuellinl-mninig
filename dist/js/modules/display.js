@@ -49,6 +49,21 @@ function createEachBook(book) {
         bookListElem?.appendChild(articleElement);
     }
 }
+function clickedBook(books) {
+    const eachBookElem = document.querySelectorAll('.book-article');
+    eachBookElem.forEach((book) => {
+        book.addEventListener('click', function (event) {
+            const clickedBook = event.currentTarget;
+            for (const book of books) {
+                if (clickedBook?.getAttribute('data-id') === book.id.toString()) {
+                    addStyles();
+                    generateClickedBook(book);
+                }
+            }
+            document.querySelector('.btn-back')?.addEventListener('click', goBack);
+        });
+    });
+}
 function InputSearch(books) {
     btnSearchElem?.addEventListener('click', function () {
         const input = inputElem?.value.toLowerCase().trim();
@@ -84,21 +99,6 @@ function clickEnter(books) {
             }
             return alert('Book not found! Please try another titel');
         }
-    });
-}
-function clickedBook(books) {
-    const eachBookElem = document.querySelectorAll('.book-article');
-    eachBookElem.forEach((book) => {
-        book.addEventListener('click', function (event) {
-            const clickedBook = event.currentTarget;
-            for (const book of books) {
-                if (clickedBook?.getAttribute('data-id') === book.id.toString()) {
-                    addStyles();
-                    generateClickedBook(book);
-                }
-            }
-            document.querySelector('.btn-back')?.addEventListener('click', goBack);
-        });
     });
 }
 export { generateClickedBook, bodyElem, createEachBook, InputSearch, clickedBook, clickEnter, };
