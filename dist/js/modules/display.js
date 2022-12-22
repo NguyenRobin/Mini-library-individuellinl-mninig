@@ -1,8 +1,7 @@
-import { addStyles, goBack } from './helperFunction.js';
+import { addStyles, goBack, checkValidInputSearch } from './helperFunction.js';
 const bodyElem = document.querySelector('body');
 const bookListElem = document.querySelector('.book-list');
 const btnSearchElem = document.querySelector('.btn__book-search');
-const inputElem = document.querySelector('.input-search');
 function generateClickedBook(book) {
     const html = `
   <div class="container book">
@@ -30,6 +29,7 @@ function generateClickedBook(book) {
 </div>
   `;
     bodyElem?.insertAdjacentHTML('beforeend', html);
+    document.querySelector('.btn-back')?.addEventListener('click', goBack);
 }
 function createEachBook(book) {
     for (let i = 0; i < book.length; i++) {
@@ -60,45 +60,20 @@ function clickedBook(books) {
                     generateClickedBook(book);
                 }
             }
-            document.querySelector('.btn-back')?.addEventListener('click', goBack);
         });
     });
 }
 function InputSearch(books) {
     btnSearchElem?.addEventListener('click', function () {
-        const input = inputElem?.value.toLowerCase().trim();
-        for (const book of books) {
-            if (book.title.toLowerCase().trim() === input ||
-                book.author.toLowerCase().trim() === input) {
-                console.log(book.title.toLowerCase().trim());
-                addStyles();
-                generateClickedBook(book);
-                inputElem.value = '';
-                document.querySelector('.btn-back')?.addEventListener('click', goBack);
-                return;
-            }
-        }
-        return alert('Book not found! Please try another titel');
+        checkValidInputSearch(books);
     });
 }
 function clickEnter(books) {
     window.addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
-            const input = inputElem?.value.toLowerCase().trim();
-            for (const book of books) {
-                if (book.title.toLowerCase().trim() === input ||
-                    book.author.toLowerCase().trim() === input) {
-                    addStyles();
-                    generateClickedBook(book);
-                    document
-                        .querySelector('.btn-back')
-                        ?.addEventListener('click', goBack);
-                    inputElem.value = '';
-                    return;
-                }
-            }
-            return alert('Book not found! Please try another titel');
+            checkValidInputSearch(books);
         }
     });
+    return;
 }
 export { generateClickedBook, bodyElem, createEachBook, InputSearch, clickedBook, clickEnter, };
