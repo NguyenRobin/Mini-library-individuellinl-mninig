@@ -1,7 +1,6 @@
 async function getData() {
     try {
         const url = 'https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books';
-        // console.log('url ->', url);
         const response = await fetch(url);
         if (!response.ok)
             throw Error('Problem getting data from API! ⛔️');

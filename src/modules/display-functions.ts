@@ -1,5 +1,9 @@
 import { Book } from './interface.js';
-import { addStyles, goBack, checkValidInputSearch } from './helperFunction.js';
+import {
+  addStyles,
+  goBack,
+  checkValidInputSearch,
+} from './helper-functions.js';
 
 const bodyElem = document.querySelector('body')!;
 const bookListElem = document.querySelector('.book-list');

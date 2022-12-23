@@ -1,14 +1,14 @@
 import { getData } from './modules/api.js';
 import { Book } from './modules/interface.js';
-import { clickEscape } from './modules/helperFunction.js';
+import { clickEscape } from './modules/helper-functions.js';
 import {
   createEachBook,
   InputSearch,
   clickedBook,
   clickEnter,
-} from './modules/display.js';
+} from './modules/display-functions.js';
 
-async function loadBookList() {
+async function loadPage() {
   const dataOfBooks: Book[] = await getData();
 
   createEachBook(dataOfBooks);
@@ -17,4 +17,4 @@ async function loadBookList() {
   clickEnter(dataOfBooks);
   clickEscape();
 }
-loadBookList();
+loadPage();

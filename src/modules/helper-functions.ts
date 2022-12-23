@@ -1,4 +1,4 @@
-import { bodyElem, generateClickedBook } from './display.js';
+import { bodyElem, generateClickedBook } from './display-functions.js';
 import { Book } from './interface.js';
 
 const containerElem = document.querySelector('.container');
@@ -27,6 +27,7 @@ function addStyles(): void {
 
 function checkValidInputSearch(books: Book[]) {
   const input = inputElem?.value.match(/[a-z]/gi)?.join('').toLowerCase();
+
   for (const book of books) {
     const title = book.title.match(/[a-z]/gi)?.join('').toLowerCase();
     const author = book.author.match(/[a-z]/gi)?.join('').toLowerCase();
